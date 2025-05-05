@@ -1,42 +1,83 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Universum Solution - Formula E</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universum Solution</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-
-<header>
-    <h1>Universum Solution</h1>
-    <p>Presentazione del nostro software per il trading automatico su Ethereum: <strong>Formula E</strong></p>
-    <button onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'});">Contattaci</button>
-</header>
-
-<section class="slider">
-    <h2>Formula E in Azione</h2>
-    <div class="slider-container">
-        <img src="https://via.placeholder.com/300x200?text=Screen+1" class="slide active">
-        <img src="https://via.placeholder.com/300x200?text=Screen+2" class="slide">
-        <img src="https://via.placeholder.com/300x200?text=Screen+3" class="slide">
+<body onload="loadPage()">
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <p>Caricamento...</p>
     </div>
-</section>
 
-<section id="contact-form">
-    <h2>Contattaci</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Nome" required><br>
-        <input type="email" name="email" placeholder="Email" required><br>
-        <textarea name="message" placeholder="Messaggio" required></textarea><br>
-        <button type="submit">Invia</button>
-    </form>
-</section>
+    <!-- Contenuto principale -->
+    <div id="main-content" style="display:none;">
+        <header>
+            <h1>Universum Solution</h1>
+            <p>Software di Trading Automatico su Ethereum</p>
+        </header>
 
-<footer>
-    <p>&copy; 2025 Universum Solution. Tutti i diritti riservati.</p>
-</footer>
+        <!-- Menu -->
+        <div class="nav-buttons">
+            <button onclick="scrollToSection('chi-siamo')">Chi Siamo</button>
+            <button onclick="scrollToSection('servizi')">I Nostri Servizi</button>
+            <button onclick="scrollToSection('caratteristiche')">Caratteristiche</button>
+            <button onclick="scrollToSection('galleria')">Galleria</button>
+            <button onclick="openPopup()">Contattaci</button>
+        </div>
 
-<script src="js/script.js"></script>
+        <!-- Slider -->
+        <div class="slider-container">
+            <img class="slide active" src="immagini/slide1.jpg" alt="Slide 1">
+            <img class="slide" src="immagini/slide2.jpg" alt="Slide 2">
+            <img class="slide" src="immagini/slide3.jpg" alt="Slide 3">
+        </div>
+
+        <!-- Sezioni -->
+        <section id="chi-siamo">
+            <h2>Chi Siamo</h2>
+            <p>Testo su chi siamo...</p>
+        </section>
+        <section id="servizi">
+            <h2>I Nostri Servizi</h2>
+            <p>Testo sui servizi...</p>
+        </section>
+        <section id="caratteristiche">
+            <h2>Caratteristiche</h2>
+            <p>Testo sulle caratteristiche...</p>
+        </section>
+        <section id="galleria">
+            <h2>Galleria</h2>
+            <div class="images">
+                <img src="galleria/1.jpg" alt="Immagine 1">
+                <img src="galleria/2.jpg" alt="Immagine 2">
+                <img src="galleria/3.jpg" alt="Immagine 3">
+            </div>
+        </section>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3>Contattaci</h3>
+            <form onsubmit="sendForm(); return false;">
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="messaggio" placeholder="Il tuo messaggio" required></textarea>
+                <button type="submit">Invia</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Universum Solution. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
+    
