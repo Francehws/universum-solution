@@ -1,10 +1,19 @@
-// Popup
+// Funzione per aprire il popup (contatto)
 function openPopup() {
     document.getElementById('popup').style.display = 'block';
 }
 
+// Funzione per chiudere il popup (contatto)
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
+}
+
+// Funzione per inviare la mail (aggiungere la logica per il form)
+function sendForm() {
+    // Inviare i dati del form tramite Formspree o altra logica
+    // Qui potresti aggiungere un'eventuale logica di validazione dei dati
+    alert('Form inviato con successo!');
+    closePopup(); // Chiude il popup dopo invio
 }
 
 // Slider automatico
@@ -24,6 +33,7 @@ if (slides.length > 0) {
         showSlide(currentIndex);
     }, 3000); // cambia immagine ogni 3 secondi
 }
+
 // Funzione per il caricamento della pagina
 function loadPage() {
     const loader = document.getElementById('loader');
@@ -39,4 +49,7 @@ function loadPage() {
         mainContent.style.display = 'block';
     }, 2000);
 }
+
 // Carica la pagina al caricamento
+window.onload = loadPage;
+// Funzione per il caricamento della pagina 
