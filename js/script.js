@@ -8,53 +8,34 @@ function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
 
-// Funzione per inviare la mail (aggiungere la logica per il form)
+// Funzione per inviare la mail (aggiungere la logica qui)
 function sendForm() {
-    // Inviare i dati del form tramite Formspree o altra logica
-    alert('Form inviato con successo!');
-    closePopup(); // Chiude il popup dopo invio
+    alert('Il tuo messaggio è stato inviato con successo!');
+    closePopup();
 }
 
-// Slider automatico
-let currentIndex = 0;
-const slides = document.querySelectorAll(".slide");
-
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slides[index].classList.add("active");
+// Funzione per scorrere alla sezione specificata
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    window.scrollTo({
+        top: section.offsetTop - 50,
+        behavior: 'smooth'
+    });
 }
 
-if (slides.length > 0) {
-    showSlide(currentIndex);
-
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }, 4000);
-}
-
-// Funzione per il caricamento della pagina
+// Funzione per caricare la pagina e nascondere il loader
 function loadPage() {
-    const loader = document.getElementById('loader');
-    const mainContent = document.getElementById('main-content');
-
-    // Nascondi il contenuto principale e mostra il loader
-    mainContent.style.display = 'none';
-    loader.style.display = 'block';
-
-    // Simula un caricamento di 2 secondi
-    setTimeout(() => {
-        loader.style.display = 'none';
-        mainContent.style.display = 'block';
-    }, 2000);
+    setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+    }, 2000); // Aspetta 2 secondi per simulare il caricamento
 }
 
-// Funzione per scrollare alla sezione specificata
-function scrollToSection(id) {
-    const section = document.getElementById(id);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-// Aggiungi un evento di caricamento alla finestra
-window.addEventListener('load', loadPage);  
+// Funzione per gestire lo slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+setInterval(function() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}, 5000); // Cambio slide ogni 5 secondi

@@ -5,10 +5,15 @@ body {
     padding: 0;
     background: #0e0f12;
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
 }
 
 header, section, footer {
-    padding: 40px 20px;
+    width: 100%;
     text-align: center;
 }
 
@@ -168,4 +173,19 @@ footer {
     color: #c5c6c7;
     font-size: 0.9rem;
     padding: 20px;
+}
+
+/* ======= LOADER ======= */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
 }
