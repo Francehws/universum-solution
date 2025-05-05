@@ -1,3 +1,4 @@
+/* Stile Generale */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -88,6 +89,7 @@ footer {
     padding: 20px;
 }
 
+/* Popup */
 .popup {
     display: none;
     position: fixed;
@@ -125,34 +127,19 @@ footer {
     color: #ffffff;
 }
 
-/* 🎞️ SLIDER */
-
-.slider {
-    background-color: #0b0c10;
-    padding: 50px 20px;
-}
-
+/* Slider */
 .slider-container {
-    max-width: 320px;
-    margin: 0 auto;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
 }
 
-.slider-container .slide {
-    display: none;
-    width: 100%;
+.slider-container img.slide {
+    width: 300px;
     height: 200px;
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
-}
-
-.slider-container .slide.active {
-    display: block;
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
-}
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
