@@ -1,12 +1,11 @@
-
 // Funzione per aprire il popup (contatto)
 function openPopup() {
-    document.getElementById('popup').style.display = 'flex';
+    document.getElementById('popup').classList.add('show');
 }
 
 // Funzione per chiudere il popup (contatto)
 function closePopup() {
-    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popup').classList.remove('show');
 }
 
 // Funzione per inviare la mail (aggiungere la logica qui)
@@ -29,14 +28,15 @@ function loadPage() {
     const loader = document.getElementById('loader');
     const mainContent = document.getElementById('main-content');
 
-    // Nascondi il contenuto principale e mostra il loader
-    mainContent.style.display = 'none';
-    loader.style.display = 'flex';  // usiamo 'flex' per centrare il contenuto
+    mainContent.classList.add('hidden');
+    loader.style.display = 'flex';
 
-    // Simula un caricamento di 2 secondi
     setTimeout(() => {
-        loader.style.display = 'none';
-        mainContent.style.display = 'block';
+        loader.style.opacity = 0;
+        setTimeout(() => {
+            loader.style.display = 'none';
+            mainContent.classList.remove('hidden');
+        }, 300);
     }, 2000);
 }
 
@@ -47,5 +47,4 @@ setInterval(function() {
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add('active');
-}, 5000); // Cambio slide ogni 5 secondi
-// Funzione per gestire il menu mobile  
+}, 5000);

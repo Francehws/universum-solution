@@ -1,4 +1,3 @@
-
 /* ======= LOADER ======= */
 .loader {
     position: fixed;
@@ -12,7 +11,8 @@
     align-items: center;
     color: white;
     font-size: 2rem;
-    z-index: 9999; /* Assicurati che il loader stia sopra il contenuto */
+    z-index: 9999;
+    transition: opacity 0.3s ease;
 }
 
 /* ======= MODIFICHE PER IL POPUP ======= */
@@ -27,9 +27,17 @@
     background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
 }
 
-/* Popup Content */
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
 .popup-content {
     background-color: #1f2833;
     color: white;
@@ -70,11 +78,12 @@
     border-radius: 8px;
     cursor: pointer;
     margin: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-buttons button:hover {
     background-color: #45a29e;
+    transform: scale(1.05);
 }
 
 .nav-buttons button:focus {
@@ -115,13 +124,13 @@ section p {
     object-fit: cover;
     border-radius: 12px;
     transition: transform 0.3s ease;
+    transform: scale(0.9);
     opacity: 0;
-    visibility: hidden;
 }
 
 .slider-container .slide.active {
+    transform: scale(1);
     opacity: 1;
-    visibility: visible;
 }
 
 /* ======= FOOTER ======= */
@@ -142,15 +151,4 @@ footer {
 }
 
 .images img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.images img:hover {
-    transform: scale(1.05);
-}
-    
+    width:
