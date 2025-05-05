@@ -1,154 +1,26 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universum Solution - Formula E</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body onload="loadPage()">
-    <div id="loader">Caricamento...</div>
-    <div id="main-content">
-        <header>
-            <h1>Universum Solution</h1>
-            <p>Formula E - Software per il trading automatico su Ethereum</p>
-            <button onclick="openPopup()">Scopri di più</button>
-        </header>
+// Popup
+function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+}
 
-        <nav>
-            <ul>
-                <li><a href="#about">Chi Siamo</a></li>
-                <li><a href="#services">I Nostri Servizi</a></li>
-                <li><a href="#features">Caratteristiche</a></li>
-                <li><a href="#gallery">Galleria</a></li>
-                <li><a href="#contact">Contattaci</a></li>
-            </ul>      
-        </nav>
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
 
-        <section class="hero">
-            <h2>Formula E</h2>
-            <p>Il tuo alleato nel trading su Ethereum</p>
-            <button onclick="openPopup()">Inizia ora</button>
-        </section>
+// Slider automatico
+let currentIndex = 0;
+const slides = document.querySelectorAll(".slide");
 
-        <section id="about" class="about">
-            <h2>Chi Siamo</h2>
-            <p>Universum Solution è un'azienda innovativa specializzata in software di trading automatico. Con Formula E, portiamo il trading su Ethereum a un nuovo livello.</p>
-            <p>Il nostro obiettivo è fornire strumenti avanzati per aiutarti a massimizzare i tuoi profitti nel mondo delle criptovalute.</p>
-        </section>
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+}
 
-        <section id="services" class="services">
-            <h2>I Nostri Servizi</h2>
-            <ul>
-                <li>Trading automatico su Ethereum</li>
-                <li>Analisi dei dati in tempo reale</li>
-                <li>Supporto clienti 24/7</li>
-            </ul>
-        </section>
+if (slides.length > 0) {
+    showSlide(currentIndex); // mostra il primo slide
 
-        <section id="features" class="features">
-            <h2>Caratteristiche di Formula E</h2>
-            <ul>
-                <li>Trading completamente automatizzato</li>
-                <li>Algoritmi intelligenti basati su dati real-time</li>
-                <li>Ottimizzato per Ethereum</li>
-            </ul>
-        </section>
-
-        <section id="gallery" class="images">
-            <h2>Galleria</h2>
-            <img src="assets/image1.jpg" alt="Screenshot Formula E">
-            <img src="assets/image2.jpg" alt="Trading Interface">
-        </section>
-
-        <section class="slider">
-            <h2>Formula E in Azione</h2>
-            <div class="slider-container">
-                <img src="https://www.shutterstock.com/image-photo/business-men-holding-bitcoin-ethereum-600nw-1905996475.jpg" class="slide active">
-                <img src="https://thumbs.dreamstime.com/b/sleek-black-background-trading-chart-displays-bitcoin-ethereum-trading-values-red-blue-candlesticks-line-graphs-353875073.jpg" class="slide">
-                <img src="https://wallpapers.com/images/featured/ethereum-43d8qpskadhydz4p.jpg" class="slide">
-            </div>
-        </section>
-
-        <section class="video">
-            <h2>Guarda Formula E in Azione</h2>
-            <div class="video-container">
-                <iframe 
-                    src="https://drive.google.com/file/d/1cLAQ9c3r4ESxFn2UAL_xVYuZaiiGcfDW/preview" 
-                    width="100%" 
-                    height="480" 
-                    allow="autoplay" 
-                    frameborder="0" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <button onclick="openPopup()">Contattaci</button>
-        </section>
-
-        <section class="faq">
-            <h2>Domande Frequenti</h2>
-            <div class="faq-item">
-                <h3>Cos'è Formula E?</h3>
-                <p>Formula E è un software avanzato per il trading automatico su Ethereum, progettato per massimizzare i profitti.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Come funziona?</h3>
-                <p>Utilizza algoritmi intelligenti per analizzare i dati di mercato e prendere decisioni di trading in tempo reale.</p>
-            </div>
-            <div class="faq-item">
-                <h3>È sicuro?</h3>
-                <p>Sì, Formula E è progettato con la massima sicurezza in mente, proteggendo i tuoi dati e investimenti.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Posso provarlo gratuitamente?</h3>
-                <p>No, però è possibile iniziare con un costo irrisorio.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Quali sono i requisiti di sistema?</h3>
-                <p>Basta solo il tuo telefono per controllare l'andamento!</p>
-            </div>
-        </section>
-
-        <section class="testimonials">
-            <h2>Cosa dicono i nostri clienti</h2>
-            <blockquote>
-                <p>"Formula E ha rivoluzionato il mio modo di fare trading!"</p>
-                <cite>- Marco Rossi</cite>
-            </blockquote>
-            <blockquote>
-                <p>"Un software incredibile, semplice e potente!"</p>
-                <cite>- Laura Bianchi</cite>
-            </blockquote>
-        </section>
-
-        <footer>
-            <p>© 2025 Universum Solution | @Michele.Ippedico</p>
-        </footer>
-
-        <div class="popup" id="popup">
-            <div class="popup-content">
-                <span class="close" onclick="closePopup()">&times;</span>
-                <h3>Contattaci</h3>
-                <form action="https://formspree.io/f/mqaqqeop" method="POST">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="La tua email" required>
-
-                    <label for="message">Messaggio:</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Il tuo messaggio" required></textarea>
-
-                    <button type="submit">Invia</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }, 3000); // cambia immagine ogni 3 secondi
+}
