@@ -25,10 +25,18 @@ function scrollToSection(sectionId) {
 
 // Funzione per caricare la pagina e nascondere il loader
 function loadPage() {
-    setTimeout(function() {
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-    }, 2000); // Aspetta 2 secondi per simulare il caricamento
+    const loader = document.getElementById('loader');
+    const mainContent = document.getElementById('main-content');
+
+    // Nascondi il contenuto principale e mostra il loader
+    mainContent.style.display = 'none';
+    loader.style.display = 'flex';  // usiamo 'flex' per centrare il contenuto
+
+    // Simula un caricamento di 2 secondi
+    setTimeout(() => {
+        loader.style.display = 'none';
+        mainContent.style.display = 'block';
+    }, 2000);
 }
 
 // Funzione per gestire lo slider
