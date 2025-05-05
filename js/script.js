@@ -1,77 +1,60 @@
-// =====================
-// Popup Contatto
-// =====================
+// Funzione per aprire il popup (contatto)
 function openPopup() {
-    document.getElementById('popup').style.display = 'flex'; // "flex" per centrare
+    document.getElementById('popup').style.display = 'flex';
 }
 
+// Funzione per chiudere il popup (contatto)
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
 
-// =====================
-// Invio del form
-// =====================
-function sendForm(event) {
-    event.preventDefault(); // Evita il comportamento predefinito
-
-    const form = event.target;
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-        if (response.ok) {
-            alert('Messaggio inviato con successo!');
-            closePopup();
-            form.reset();
-        } else {
-            alert('Errore durante l\'invio. Riprova.');
-        }
-    });
+// Funzione per inviare la mail (aggiungere la logica per il form)
+function sendForm() {
+    // Inviare i dati del form tramite Formspree o altra logica
+    alert('Form inviato con successo!');
+    closePopup(); // Chiude il popup dopo invio
 }
 
-// =====================
 // Slider automatico
-// =====================
 let currentIndex = 0;
 const slides = document.querySelectorAll(".slide");
 
 function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove("active");
-        slide.style.display = i === index ? 'block' : 'none';
-    });
-}
-
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
 }
 
 if (slides.length > 0) {
     showSlide(currentIndex);
-    setInterval(nextSlide, 3000); // cambia ogni 3 secondi
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }, 4000);
 }
 
-// =====================
-// Loader iniziale
-// =====================
+// Funzione per il caricamento della pagina
 function loadPage() {
     const loader = document.getElementById('loader');
     const mainContent = document.getElementById('main-content');
 
+    // Nascondi il contenuto principale e mostra il loader
     mainContent.style.display = 'none';
     loader.style.display = 'block';
 
+    // Simula un caricamento di 2 secondi
     setTimeout(() => {
         loader.style.display = 'none';
         mainContent.style.display = 'block';
     }, 2000);
 }
 
-window.onload = loadPage;
+// Funzione per scrollare alla sezione specificata
+function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+// Aggiungi un evento di caricamento alla finestra
+window.addEventListener('load', loadPage);  
