@@ -1,10 +1,13 @@
-/* Stile Generale */
+/* =====================
+   Stile Generale
+====================== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background: #0e0f12;
     color: #ffffff;
+    scroll-behavior: smooth;
 }
 
 header, section, footer {
@@ -43,11 +46,12 @@ button {
     border-radius: 8px;
     cursor: pointer;
     margin-top: 20px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background: #45a29e;
+    transform: translateY(-2px);
 }
 
 .features ul {
@@ -89,7 +93,25 @@ footer {
     padding: 20px;
 }
 
-/* Popup */
+/* =====================
+   Loader
+====================== */
+#loader {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background: #0e0f12;
+    color: #66fcf1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =====================
+   Popup Contatto
+====================== */
 .popup {
     display: none;
     position: fixed;
@@ -101,22 +123,32 @@ footer {
     background-color: rgba(0,0,0,0.7);
     justify-content: center;
     align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Contenuto del Pop-up */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 .popup-content {
     background-color: #1f2833;
     color: white;
     padding: 30px;
-    width: 80%;
+    width: 90%;
     max-width: 600px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     position: relative;
     text-align: center;
+    animation: slideUp 0.3s ease-in-out;
 }
 
-/* Chiusura del pop-up */
+@keyframes slideUp {
+    from {transform: translateY(50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
 .close {
     position: absolute;
     top: 10px;
@@ -124,64 +156,90 @@ footer {
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
+    color: #66fcf1;
 }
 
 .close:hover {
     color: #fff;
 }
 
-/* Form di Contatto */
+/* =====================
+   Form Contatto
+====================== */
 .popup-content form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-top: 15px;
 }
 
 .popup-content form input,
 .popup-content form textarea {
-    padding: 10px;
+    padding: 12px;
     font-size: 1rem;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #2c3e50;
     width: 100%;
     background-color: #2c3e50;
     color: white;
+    resize: none;
+    transition: border-color 0.3s ease;
 }
 
-.popup-content form button {
-    background-color: #66fcf1;
-    color: #0b0c10;
-    padding: 12px 28px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.popup-content form input:focus,
+.popup-content form textarea:focus {
+    outline: none;
+    border-color: #66fcf1;
 }
 
-.popup-content form button:hover {
-    background-color: #45a29e;
-}
-
-/* Slider */
+/* =====================
+   Slider
+====================== */
 .slider-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    overflow-x: auto;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 20px 0;
 }
 
-.slider-container img.slide {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
+.slide {
+    display: none;
+    width: 100%;
+    height: auto;
     border-radius: 12px;
+    object-fit: cover;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
+    transition: opacity 1s ease-in-out;
 }
 
-.slider-container img.slide:hover {
-    transform: scale(1.05);
+.slide.active {
+    display: block;
+    animation: fadeSlide 1s ease-in-out;
+}
+
+@keyframes fadeSlide {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* =====================
+   Responsive
+====================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .images img,
+    .slider-container img.slide {
+        width: 90%;
+        height: auto;
+    }
+
+    .popup-content {
+        width: 95%;
+        padding: 20px;
+    }
 }
