@@ -1,138 +1,62 @@
-
-/* ======= MODIFICHE PER IL POPUP ======= */
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
-
-/* Popup Content */
-.popup-content {
-    background-color: #1f2833;
-    color: white;
-    padding: 30px;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    position: relative;
-    text-align: center;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #fff;
-}
-
-/* ======= STILE PER IL MENU ======= */
-nav {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-button {
-    background-color: #66fcf1;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 10px;
-    color: #1f2833;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a29e;
-}
-
-/* ======= STILE PER LO SLIDER ======= */
-.slider-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    overflow-x: auto;
-    padding: 20px 0;
-}
-
-.slider-container img.slide {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
-}
-
-.slider-container img.slide:hover {
-    transform: scale(1.05);
-}
-
-.images img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
-
-/* ======= STILE GENERALE ======= */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #0e0f12;
-    color: #ffffff;
-}
-
-header, section, footer {
-    padding: 40px 20px;
-    text-align: center;
+    font-family: Arial, sans-serif;
 }
 
 header {
-    background: linear-gradient(135deg, #1f2833, #0b0c10);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-align: center;
+    margin: 20px;
 }
 
-h1 {
-    font-size: 3rem;
-    color: #66fcf1;
-    margin-bottom: 0.2em;
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
-h2 {
-    color: #45a29e;
-    margin-bottom: 1em;
+button:hover {
+    background-color: #45a049;
 }
 
-p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
+.slider {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
-footer {
-    background-color: #1f2833;
-    color: #c5c6c7;
-    font-size: 0.9rem;
+.slide {
+    margin: 0 10px;
+}
+
+#contactPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contactPopup form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contactPopup form label {
+    margin-top: 10px;
+}
+
+#contactPopup form input, #contactPopup form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#contactPopup form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
 }
